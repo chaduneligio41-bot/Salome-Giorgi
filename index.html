@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ka">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>გიორგი &amp; სალომე — 05.09.2026</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+Georgian:wght@300;400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- ═══════════════════ HERO ═══════════════════ -->
+        <section class="hero" id="hero">
+            <picture>
+                <source srcset="bg-top-desk.jpg" media="(min-width: 768px)">
+                <img
+                    src="bg-top.jpg"
+                    alt=""
+                    class="hero-bg hero-bg--top"
+                    aria-hidden="true"
+                >
+            </picture>
+            <picture>
+                <source srcset="bg-bottom-desk.jpg" media="(min-width: 768px)">
+                <img
+                    src="bg-bottom.jpg"
+                    alt=""
+                    class="hero-bg hero-bg--bottom"
+                    aria-hidden="true"
+                >
+            </picture>
+            <div class="hero-content">
+                <p class="hero-eyebrow">Save the Date</p>
+                <p class="hero-bridge">გეპატიჟებით</p>
+                <div class="hero-names">
+                    <span class="hero-name" id="name-1">გიორგი</span>
+                    <span class="hero-amp">&amp;</span>
+                    <span class="hero-name" id="name-2">სალომე</span>
+                </div>
+                <p class="hero-wedding" id="hero-wedding">ქორწილში</p>
+                <div class="hero-rule"></div>
+                <div class="hero-date-block">
+                    <p class="hero-date-label">სექტემბერი</p>
+                    <p class="hero-date-num">5</p>
+                    <p class="hero-date-sub">შაბათი &middot; 2026</p>
+                </div>
+                <p class="hero-venue">რესტორანი „ქალაქური“</p>
+                <a href="#details" class="hero-cta">იხილეთ დეტალები</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════ COUNTDOWN ═══════════════════ -->
+        <div class="countdown-section">
+            <p class="countdown-label">ქორწილამდე დარჩა</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-days">00</span>
+                    <span class="countdown-lbl">დღე</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-hours">00</span>
+                    <span class="countdown-lbl">საათი</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-mins">00</span>
+                    <span class="countdown-lbl">წუთი</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-num" id="cd-secs">00</span>
+                    <span class="countdown-lbl">წამი</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════ DETAILS ═══════════════════ -->
+        <section class="section details" id="details">
+
+            <h2 class="section-title">ქორწილის დეტალები</h2>
+            <div class="details-cards">
+                <div class="detail-card">
+                    <p class="detail-card__label">ცერემონია &amp; ბანკეტი</p>
+                    <p class="detail-card__name">რესტორანი „ქალაქური“</p>
+                    <p class="detail-card__time">18:00 სთ</p>
+                    <p class="detail-card__addr">
+                        ლოკაცია მდებარეობს ხაშურის/სურამის ტერიტორიაზე.
+                    </p>
+                    
+                    <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                        <!-- Google Maps link -->
+                        <a href="https://maps.app.goo.gl/JfuVsH25nNBdU8KE8" target="_blank" rel="noopener" class="hero-cta" style="margin: 0; padding: 0.8rem 2rem;">
+                            📍 გახსენი რუკაზე
+                        </a>
+                        
+                        <!-- Add to Calendar link -->
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=%E1%83%92%E1%83%98%E1%83%9D%E1%83%A0%E1%83%92%E1%83%98+%26+%E1%83%A1%E1%83%90%E1%83%9A%E1%83%9D%E1%83%9B%E1%83%94%E1%83%A1+%E1%83%A5%E1%83%9D%E1%83%A0%E1%83%AC%E1%83%98%E1%83%9A%E1%83%98&dates=20260905T140000Z/20260905T220000Z&details=%E1%83%A1%E1%83%98%E1%83%A7%E1%83%95%E1%83%90%E1%83%A0%E1%83%A3%E1%83%A5%E1%83%9A%E1%83%98%E1%83%97+%E1%83%92%E1%83%94%E1%83%9A%E1%83%98%E1%83%97%21&location=https://maps.app.goo.gl/JfuVsH25nNBdU8KE8" target="_blank" rel="noopener" class="hero-cta" style="margin: 0; padding: 0.8rem 2rem; border-color: var(--soft); color: var(--mid);">
+                            📅 დაამატე კალენდარში
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--gold-pale); max-width: 480px; margin-left: auto; margin-right: auto; text-align: center;">
+                <p style="font-family: 'Playfair Display', 'Noto Serif Georgian', serif; font-style: italic; font-size: 1.35rem; color: var(--dark); line-height: 1.5; margin-bottom: 0.8rem;">
+                    „სიყვარულით გელით ჩვენს ბედნიერ დღეს!“
+                </p>
+                <p style="font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase;">
+                    გიორგი &amp; სალომე
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════ FOOTER ═══════════════════ -->
+        <footer class="footer">
+            <p class="footer-credit">
+                გიორგი &amp; სალომე &middot; 05.09.2026
+            </p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>

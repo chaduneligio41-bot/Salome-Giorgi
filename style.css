@@ -1,0 +1,518 @@
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream:    #faf8f3;
+  --white:    #ffffff;
+  --gold:     #b8922a;
+  --gold-lt:  #d9b97a;
+  --gold-pale:#efe4c8;
+  --dark:     #3a3020;
+  --mid:      #7a6e5a;
+  --soft:     #b5a99a;
+  --green:    #6b7c5a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'Playfair Display', 'Noto Serif Georgian', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* Botanical flower images — multiply removes white bg */
+.hero-bg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: block;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-bg--top    { top: 0; transform: translateY(-8%); }
+.hero-bg--bottom {
+  bottom: 0;
+  transform: translateY(0);
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+}
+
+/* Content sits above the images */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  /* push content below top flowers (~55 % of 786px image, scaled to viewport width) */
+  padding-top: 220px;
+  /* push content above bottom flowers */
+  padding-bottom: 260px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+}
+
+/* ── eyebrow ── */
+.hero-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-bridge {
+  font-family: 'Playfair Display', 'Noto Serif Georgian', serif;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.hero-wedding {
+  font-family: 'Playfair Display', 'Noto Serif Georgian', serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* ── names ── */
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  gap: 0.1rem;
+  margin: 0.8rem 0;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', 'Noto Serif Georgian', serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.hero-amp {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.8rem;
+  color: var(--gold-lt);
+  line-height: 1.5;
+}
+
+/* ── divider rule ── */
+.hero-rule {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold-pale);
+  margin: 0.8rem 0;
+}
+
+/* ── date block ── */
+.hero-date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0.8rem;
+}
+
+.hero-date-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-date-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 3rem;
+  color: var(--gold);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.8rem;
+  padding-top: 0.2rem;
+}
+
+.hero-date-sub {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── venue ── */
+.hero-venue {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 1.2rem;
+}
+
+/* ── CTA button ── */
+.hero-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.8rem 2.2rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.hero-cta:hover,
+.hero-cta:active {
+  background: var(--gold);
+  color: var(--cream);
+}
+
+/* ═══════════════════════════════════════════════
+   COUNTDOWN STRIP
+   ═══════════════════════════════════════════════ */
+.countdown-section {
+  background: var(--cream);
+  padding: 2.5rem 1.75rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  border-top: 1px solid var(--gold-pale);
+}
+
+.countdown-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── countdown ── */
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.2rem;
+  color: var(--dark);
+}
+
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.countdown-lbl {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.3rem;
+}
+
+.countdown-sep {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--gold-pale);
+  line-height: 1;
+  padding-top: 0.1rem;
+  align-self: flex-start;
+}
+
+.countdown-done {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL-REVEAL SECTIONS
+   ═══════════════════════════════════════════════ */
+.section {
+  padding: 4rem 1.75rem;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-family: 'Playfair Display', 'Noto Serif Georgian', serif;
+  font-weight: 400;
+  font-size: 1.65rem;
+  color: var(--gold);
+  text-align: center;
+  margin: 1rem 0 3rem; 
+  letter-spacing: 0.02em;
+}
+
+/* ═══════════════════════════════════════════════
+   DETAILS
+   ═══════════════════════════════════════════════ */
+.details {
+  background: var(--white);
+  text-align: center;
+  border-top: 1px solid var(--gold-pale);
+}
+
+/* couple photo */
+.couple-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.couple-photo {
+  width: 220px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--gold-pale);
+  outline: 6px solid var(--white);
+  box-shadow: 0 0 0 7px var(--gold-pale);
+}
+
+.details-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.detail-card {
+  padding: 1.5rem 1rem;
+  width: 100%;
+}
+
+.detail-card__label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.65rem;
+}
+
+.detail-card__name {
+  font-family: 'Playfair Display', 'Noto Serif Georgian', serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.detail-card__time {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.detail-card__addr {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+.footer {
+  background: var(--dark);
+  padding: 3rem 1.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-credit {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--soft);
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════
+   DESKTOP  (≥ 768px)
+   ═══════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* ── Hero ── */
+  .hero-content {
+    padding-top:    300px;
+    padding-bottom: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    gap: 0.7rem;
+  }
+
+  .hero-name {
+    font-size: 4rem;
+  }
+
+  .hero-amp {
+    font-size: 2.8rem;
+  }
+
+  .hero-wedding {
+    font-size: 1.8rem;
+  }
+
+  .hero-rule {
+    width: 4rem;
+  }
+
+  /* ── Countdown strip ── */
+  .countdown-section {
+    padding: 4rem 3rem 5rem;
+  }
+
+  .countdown-label {
+    font-size: 1.3rem;
+    letter-spacing: 0.22em;
+  }
+
+  .countdown-num {
+    font-size: 3.6rem;
+  }
+
+  .countdown-lbl {
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+  }
+
+  .countdown-sep {
+    font-size: 2.4rem;
+  }
+
+  .countdown-unit {
+    min-width: 5.5rem;
+  }
+
+  /* ── Details ── */
+  .details {
+    padding: 6rem 4rem;
+  }
+
+  .couple-photo {
+    width: 360px;
+  }
+
+  .section-title {
+    font-size: 2.4rem;
+    margin: 3rem 0 2.5rem;
+  }
+
+  .detail-card {
+    padding: 2.5rem 3.5rem;
+  }
+
+  .detail-card__label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-card__name {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-card__time {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-card__addr {
+    font-size: 0.95rem;
+    line-height: 2;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 4rem 4rem;
+  }
+
+  .footer-credit {
+    font-size: 0.85rem;
+  }
+
+  .couple-photo-wrap {
+    margin-bottom: 4rem;
+  }
+}
