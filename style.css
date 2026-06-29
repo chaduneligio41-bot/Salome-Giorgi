@@ -563,25 +563,25 @@ body {
   transition: transform 0.25s ease;
 }
 
-/* Bounce to grab attention while music is OFF */
-.music-toggle:not(.is-playing) {
-  animation: music-bounce 1.8s ease-in-out infinite;
+/* Bounce continuously to grab the guest's attention (always on) */
+.music-toggle {
+  animation: music-bounce 1.4s ease-in-out infinite;
 }
 
 @keyframes music-bounce {
-  0%, 55%, 100% { transform: translateY(0); }
-  65%           { transform: translateY(-12px); }
-  75%           { transform: translateY(0); }
-  85%           { transform: translateY(-6px); }
-  95%           { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); }
+  18%      { transform: translateY(-14px); }
+  34%      { transform: translateY(0); }
+  48%      { transform: translateY(-7px); }
+  60%      { transform: translateY(0); }
 }
 
-/* Soft gold pulse ring while playing */
+/* Soft gold pulse ring while playing — keeps bouncing too */
 .music-toggle.is-playing {
   background: var(--gold);
   color: var(--white);
   border-color: var(--gold);
-  animation: music-pulse 2s ease-out infinite;
+  animation: music-bounce 1.4s ease-in-out infinite, music-pulse 2s ease-out infinite;
 }
 
 @keyframes music-pulse {
