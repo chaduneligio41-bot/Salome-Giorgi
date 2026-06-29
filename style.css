@@ -563,6 +563,19 @@ body {
   transition: transform 0.25s ease;
 }
 
+/* Bounce to grab attention while music is OFF */
+.music-toggle:not(.is-playing) {
+  animation: music-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes music-bounce {
+  0%, 55%, 100% { transform: translateY(0); }
+  65%           { transform: translateY(-12px); }
+  75%           { transform: translateY(0); }
+  85%           { transform: translateY(-6px); }
+  95%           { transform: translateY(0); }
+}
+
 /* Soft gold pulse ring while playing */
 .music-toggle.is-playing {
   background: var(--gold);
@@ -613,6 +626,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .music-toggle,
   .music-toggle.is-playing { animation: none; }
   .music-toggle__waves span { animation: none; }
 }
