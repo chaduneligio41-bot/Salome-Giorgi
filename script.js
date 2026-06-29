@@ -58,7 +58,7 @@
   var player = null;
   var ready = false;
   var playing = false;
-  var autoTried = false;
+  var wantPlay = false;
 
   function setUI(on) {
     playing = on;
@@ -88,6 +88,7 @@
         onReady: function () {
           ready = true;
           player.setVolume(60);
+          if (wantPlay) player.playVideo(); // start if the guest already asked
         },
         onStateChange: function (e) {
           if (e.data === YT.PlayerState.PLAYING) setUI(true);
@@ -98,27 +99,23 @@
   };
 
   function play() {
+    wantPlay = true;
     if (ready && player) player.playVideo();
   }
   function pause() {
+    wantPlay = false;
     if (ready && player) player.pauseVideo();
   }
 
+  // Button always works — even if YouTube hasn't finished loading yet,
+  // the request is remembered and fired the moment it's ready.
   btn.addEventListener('click', function () {
-    if (!ready) return;
     if (playing) pause(); else play();
   });
 
-  // Try to start on the visitor's first interaction (browsers block silent autoplay).
-  function tryAutoStart() {
-    if (autoTried) return;
-    autoTried = true;
-    play();
-    document.removeEventListener('pointerdown', tryAutoStart);
-    document.removeEventListener('keydown', tryAutoStart);
-    document.removeEventListener('touchstart', tryAutoStart);
-  }
-  document.addEventListener('pointerdown', tryAutoStart, { once: true });
-  document.addEventListener('keydown', tryAutoStart, { once: true });
-  document.addEventListener('touchstart', tryAutoStart, { once: true });
+  // Also start on the visitor's first interaction anywhere on the page.
+  function tryAutoStart() { play(); }
+  ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+    document.addEventListener(ev, tryAutoStart, { once: true });
+  });
 })();
